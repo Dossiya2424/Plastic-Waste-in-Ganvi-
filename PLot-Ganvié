@@ -1,0 +1,54 @@
+analyze the plastic waste data from 2015 to 2024 globally, in Africa, West Africa, Benin, and Ganvié, and to visualize this data with pie charts using a red, yellow, and green color scheme
+import matplotlib.pyplot as plt
+
+# Sample data (Replace this with actual data)
+global_data = {
+    'Region': ['North America', 'Europe', 'Asia', 'Africa', 'Oceania', 'South America'],
+    'Plastic Waste (Million Tons)': [100, 80, 200, 50, 20, 60]
+}
+
+africa_data = {
+    'Country': ['Nigeria', 'Ethiopia', 'Egypt', 'South Africa', 'Kenya', 'Benin'],
+    'Plastic Waste (Tons)': [3000000, 2000000, 4000000, 5000000, 1000000, 500000]
+}
+
+west_africa_data = {
+    'Country': ['Nigeria', 'Ghana', 'Côte d’Ivoire', 'Senegal', 'Mali', 'Benin'],
+    'Plastic Waste (Tons)': [3000000, 1500000, 1200000, 1000000, 800000, 500000]
+}
+
+benin_data = {
+    'Region': ['Cotonou', 'Porto-Novo', 'Parakou', 'Abomey-Calavi', 'Ganvié'],
+    'Plastic Waste (Tons)': [200000, 150000, 100000, 50000, 25000]
+}
+
+ganvie_data = {
+    'Type': ['Household', 'Fishing', 'Tourism', 'Market'],
+    'Plastic Waste (Tons)': [5000, 3000, 2000, 1500]
+}
+
+# Colors for the pie charts
+colors = ['red', 'yellow', 'green', 'red', 'yellow', 'green']
+
+# Function to create pie chart
+def create_pie_chart(labels, sizes, title, colors):
+    fig, ax = plt.subplots()
+    ax.pie(sizes, labels=labels, autopct='%1.1f%%', startangle=140, colors=colors[:len(labels)])
+    ax.axis('equal')  # Equal aspect ratio ensures that pie is drawn as a circle.
+    plt.title(title)
+    plt.show()
+
+# Global Plastic Waste
+create_pie_chart(global_data['Region'], global_data['Plastic Waste (Million Tons)'], 'Global Plastic Waste Distribution', colors)
+
+# Plastic Waste in Africa
+create_pie_chart(africa_data['Country'], africa_data['Plastic Waste (Tons)'], 'Plastic Waste Distribution in Africa', colors)
+
+# Plastic Waste in West Africa
+create_pie_chart(west_africa_data['Country'], west_africa_data['Plastic Waste (Tons)'], 'Plastic Waste Distribution in West Africa', colors)
+
+# Plastic Waste in Benin
+create_pie_chart(benin_data['Region'], benin_data['Plastic Waste (Tons)'], 'Plastic Waste Distribution in Benin', colors)
+
+# Plastic Waste in Ganvié
+create_pie_chart(ganvie_data['Type'], ganvie_data['Plastic Waste (Tons)'], 'Plastic Waste Sources in Ganvié', colors)
